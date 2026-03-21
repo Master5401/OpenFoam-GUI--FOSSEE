@@ -12,10 +12,12 @@ The current build focuses on the **Runtime Middleware**. It translates Blender s
 
 ## Screenshots
 
-![UI Demo](ui_demo.png)
-> **Fig 1:** The persistent SimFlow-style configuration panel within the Blender 3D Viewport.
+<img width="1918" height="1006" alt="ui_demo" src="https://github.com/user-attachments/assets/da573995-0db5-416a-a81b-2de212533386" />
+> **Fig 1:** The persistent SimFlow-style con
+figuration panel within the Blender 3D Viewport.
 
-![Output Demo](output_demo.png)
+<img width="645" height="534" alt="Screenshot 2026-03-21 122819" src="https://github.com/user-attachments/assets/1090ee04-3b40-4aab-bae1-16e896b34a23" />
+
 > **Fig 2:** Real-time data mapping from the Blender UI to the generated `controlDict` ASCII file.
 
 ## Installation
