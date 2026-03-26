@@ -27,3 +27,13 @@ class OPENFOAM_PT_Sidebar(bpy.types.Panel):
         box.prop(props, "write_interval")
 
         layout.operator("openfoam.write_config", icon='FILE_TICK')
+        
+        box = layout.box()
+        box.label(text="Mesh Generation", icon='MESH_CUBE')
+        col = box.column(align=True)
+        col.prop(props, "mesh_res_x")
+        col.prop(props, "mesh_res_y")
+        col.prop(props, "mesh_res_z")
+        
+        layout.separator()
+        layout.operator("openfoam.write_blockmesh", text="Generate blockMeshDict", icon='MOD_MESHDEFORM')
