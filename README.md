@@ -1,21 +1,24 @@
-# OpenFOAM-Blender Bridge v1.0
+# OpenFOAM-Blender Bridge (FOSSEE Internship)
 
-A professional-grade Blender add-on designed to automate the generation of OpenFOAM configuration files. This tool bridges the gap between 3D modeling and CFD simulation setup.
+A modular Blender Add-on designed to automate OpenFOAM case setup, bridging the gap between 3D geometric modeling and CFD pre-processing.
 
-## Features
-- **SimFlow-Style Workflow:** Sequential UI panels guide users from workspace setup to solver execution.
-- **Data Validation:** Built-in clamping for physical parameters (e.g., Delta T) to prevent solver crashes.
-- **Persistent Storage:** Simulation settings are saved directly within the Blender `.blend` file.
+## Current Status: M4 Geometric Extraction (Week 4)
+The current build has advanced from basic Middleware to the **Mesh Generation Engine**. It successfully translates Blender's 3D bounding box data into OpenFOAM's strict 8-point Hex standard, generating the required background mesh dictionaries.
 
-## How to Use
-1. **Installation:** Install the provided `.zip` file via Blender Preferences.
-2. **Access:** Open the 3D Viewport Sidebar (Press `N`) and select the **OpenFOAM** tab.
-3. **Workspace Setup:** Define the absolute path for your OpenFOAM case directory.
-4. **Configure Physics:** Select your solver (e.g., icoFoam) and set the simulation end time and time-steps.
-5. **Generate:** Click **Generate controlDict**. The add-on creates the necessary directory structure and the `system/controlDict` file.
+### Features
+* **Geometric Translation:** Automatically calculates mesh bounding boxes and formats vertex arrays.
+* **SimFlow-Style Interface:** Persistent N-Panel architecture mimicking standard CFD sequential pipelines (Workspace -> Physics -> Mesh -> Runtime).
+* **Data Persistence:** Utilizes Blender's `PointerProperty` to securely bind simulation parameters to the `.blend` file metadata.
+* **Automated Dictionary Generation:** Validates OS-level paths and automatically generates `system/controlDict` and `system/blockMeshDict`.
+
+## Installation
+1. Download this repository as a `.zip` file.
+2. In Blender, navigate to `Edit > Preferences > Add-ons > Install...`
+3. Select the `.zip` file and enable the "OpenFOAM Blender Bridge" add-on.
 
 ## Technical Architecture
-For future developers:
-- `properties.py`: Defines the `OpenFoamProperties` class using `bpy.props`.
-- `ui.py`: Implements the `bpy.types.Panel` following SimFlow's hierarchical UI design.
-- `operators.py`: Handles the OS-level file writing and string formatting.
+This add-on is structured for scalability to allow future integration of Boundary Condition modules:
+* `__init__.py`: Handles core Blender API registration.
+* `properties.py`: The data layer; defines the OpenFoamProperties class.
+* `ui.py`: The presentation layer; defines the `VIEW_3D` panel.
+* `operators.py`: The logic layer; handles math translation, string parsing, and OS-level file I/O operations.
