@@ -14,7 +14,7 @@ class OpenFoamProperties(bpy.types.PropertyGroup):
     end_time: bpy.props.FloatProperty(name="End Time", default=10.0, min=0.1)
     delta_t: bpy.props.FloatProperty(name="Delta T", default=0.005, min=0.0001, precision=4)
     write_interval: bpy.props.IntProperty(name="Write Interval", default=20, min=1)
-    # Add these under your existing properties
+    
     mesh_res_x: bpy.props.IntProperty(name="X Cells", default=15, min=1, description="Grid resolution in X")
     mesh_res_y: bpy.props.IntProperty(name="Y Cells", default=15, min=1, description="Grid resolution in Y")
     mesh_res_z: bpy.props.IntProperty(name="Z Cells", default=15, min=1, description="Grid resolution in Z")
